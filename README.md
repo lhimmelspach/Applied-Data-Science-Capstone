@@ -1,5 +1,3 @@
 # SpaceX Falcon 9 First Stage Landing Prediction
 
 A comprehensive end-to-end data science project that predicts whether the SpaceX Falcon 9 rocket's first stage booster will successfully land, enabling cost estimation for commercial rocket launches.
-
-[Full README content included above - includes project overview, workflow, technical stack, models, findings, and more]
