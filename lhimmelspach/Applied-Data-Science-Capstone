@@ -1,0 +1,52 @@
+# Portfolio Summary: SpaceX Falcon 9 Landing Prediction
+
+This project was completed as part of my master's capstone. It is a strong example of my work in data preparation, exploratory analysis, machine learning, and presentation of technical findings.
+
+## What I Did
+
+I built a predictive model to estimate whether a Falcon 9 first-stage booster would successfully land based on mission-level features. The project included:
+
+- collecting launch data from public sources
+- cleaning and standardizing missing or inconsistent values
+- exploring relationships between mission variables and landing success
+- engineering features for modeling
+- comparing several classification models
+- evaluating model performance using cross-validation and test accuracy
+- summarizing findings through visualizations and analysis notes
+
+## Technical Skills Demonstrated
+
+- Python
+- pandas and NumPy
+- scikit-learn
+- SQL-style analysis
+- exploratory data analysis
+- model evaluation and comparison
+- data visualization
+- dashboarding
+
+## Project Results
+
+The project notebooks report the following approximate performance:
+
+- Logistic Regression: 84.64% cross-validation accuracy, 83.33% test accuracy
+- SVM: 84.82% cross-validation accuracy, 83.33% test accuracy
+- KNN: 84.82% cross-validation accuracy, 83.33% test accuracy
+- Decision Tree: 83.33% test accuracy as reported in the notebook
+
+Because the dataset is relatively small, the results should be interpreted with caution, but the project demonstrates a solid workflow and a clear understanding of classification modeling.
+
+## Why This Project Matters
+
+This project shows that I can work with real-world data, build a machine learning pipeline, compare model performance, and present findings in a way that is understandable to technical and non-technical stakeholders.
+
+It is relevant for both data science and analytics roles because it demonstrates:
+
+- end-to-end analysis
+- data cleaning and feature work
+- modeling decisions and evaluation
+- communication of practical insights
+
+## Academic Context
+
+This project was completed as part of graduate coursework, and the original notebook retains course-provided materials and academic attribution. I preserved those materials for accuracy while using the project as a portfolio example of my analytical work.
