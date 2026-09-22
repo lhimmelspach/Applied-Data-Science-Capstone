@@ -96,7 +96,7 @@ Examples include:
 | unnamed index column | Preserved CSV index from the original dashboard data export |
 | `Flight Number` | Launch number used by the Dash app |
 | `Launch Site` | Launch site label used in the dropdown filter |
-| `class` | Binary landing-success label used in plots |
+| `class` | Binary recovery-outcome label used in plots (`1` = successful landing, `0` = unsuccessful landing or no successful recovery) |
 | `Payload Mass (kg)` | Payload mass filter and scatter-plot x-axis |
 | `Booster Version` | Raw booster label used in hover data |
 | `Booster Version Category` | Grouped booster category used for scatter-plot color |

@@ -9,8 +9,9 @@ from dash import Input, Output, dcc, html
 DATA_PATH = Path(__file__).resolve().parent / "spacex_launch_dash.csv"
 spacex_df = pd.read_csv(DATA_PATH)
 
-if spacex_df.columns[0].startswith("Unnamed") or spacex_df.columns[0] == "":
-    spacex_df = spacex_df.drop(columns=spacex_df.columns[0])
+unnamed_columns = [column for column in spacex_df.columns if not column or column.startswith("Unnamed")]
+if unnamed_columns:
+    spacex_df = spacex_df.drop(columns=unnamed_columns)
 
 spacex_df["Landing Outcome"] = spacex_df["class"].map(
     {1: "Successful landing", 0: "Unsuccessful landing"}
