@@ -38,13 +38,20 @@ env/
 *~
 .DS_Store
 
-# Data Files
-*.csv
+# Data and database artifacts
 *.xlsx
 *.xls
 *.json
 *.db
 *.sqlite
+my_data1.db
+
+# Keep tracked educational CSV snapshots in the repository.
+# Ignore local/generated exports instead.
+spacex_web_scraped.csv
+spacex_processed.csv
+spacex_ml_features.csv
+model_predictions.csv
 
 # Environment variables
 .env
