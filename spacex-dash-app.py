@@ -108,19 +108,16 @@ app.layout = html.Div(
 )
 def get_pie_chart(entered_site: str):
     if entered_site == "ALL":
-        outcome_counts = (
-            spacex_df["Landing Outcome"]
-            .value_counts()
-            .rename_axis("Landing Outcome")
-            .reset_index(name="Count")
+        success_by_site = (
+            spacex_df.groupby("Launch Site", as_index=False)["class"]
+            .sum()
+            .rename(columns={"class": "Successful landings"})
         )
         return px.pie(
-            outcome_counts,
-            values="Count",
-            names="Landing Outcome",
-            title="Landing outcomes across all launch sites",
-            color="Landing Outcome",
-            color_discrete_map=SUCCESS_COLORS,
+            success_by_site,
+            values="Successful landings",
+            names="Launch Site",
+            title="Successful landings by launch site",
         )
 
     filtered_df = spacex_df[spacex_df["Launch Site"] == entered_site]
