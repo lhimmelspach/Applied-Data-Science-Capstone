@@ -17,14 +17,15 @@ spacex_df["Landing Outcome"] = spacex_df["class"].map(
     {1: "Successful landing", 0: "Unsuccessful landing"}
 )
 
-min_payload = int(spacex_df["Payload Mass (kg)"].min())
-max_payload = int(spacex_df["Payload Mass (kg)"].max())
+min_payload = spacex_df["Payload Mass (kg)"].min()
+max_payload = spacex_df["Payload Mass (kg)"].max()
 payload_step = 250
 payload_marks = {
     value: f"{value:,}"
-    for value in range(min_payload, max_payload + 1, 2000)
+    for value in range(int(min_payload), int(max_payload) + 1, 2000)
 }
-payload_marks[max_payload] = f"{max_payload:,}"
+payload_marks[min_payload] = f"{min_payload:,.0f}"
+payload_marks[max_payload] = f"{max_payload:,.0f}"
 
 app = dash.Dash(__name__)
 app.title = "SpaceX Launch Dashboard"
