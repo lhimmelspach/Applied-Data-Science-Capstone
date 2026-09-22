@@ -173,20 +173,19 @@ def get_scatter_chart(entered_site: str, payload_range):
     fig = px.scatter(
         filtered_df,
         x="Payload Mass (kg)",
-        y="Landing Outcome",
+        y="class",
         color="Booster Version Category",
-        hover_data=["Launch Site", "Booster Version", "Flight Number"],
+        hover_data=["Launch Site", "Booster Version", "Flight Number", "Landing Outcome"],
         title=title,
         labels={
             "Payload Mass (kg)": "Payload mass (kg)",
+            "class": "Landing outcome (0 = unsuccessful, 1 = successful)",
             "Landing Outcome": "Landing outcome",
             "Booster Version Category": "Booster category",
         },
-        category_orders={
-            "Landing Outcome": ["Unsuccessful landing", "Successful landing"]
-        },
     )
     fig.update_layout(legend_title_text="Booster category")
+    fig.update_yaxes(tickmode="array", tickvals=[0, 1], ticktext=["Unsuccessful", "Successful"])
     return fig
 
 
