@@ -15,7 +15,7 @@ if unnamed_columns:
     spacex_df = spacex_df.drop(columns=unnamed_columns)
 
 spacex_df["Landing Outcome"] = spacex_df["class"].map(
-    {1: "Successful landing", 0: "Unsuccessful landing"}
+    {1: "Successful landing", 0: "No successful recovery"}
 )
 
 min_payload = float(spacex_df["Payload Mass (kg)"].min())
@@ -34,7 +34,7 @@ server = app.server
 
 SUCCESS_COLORS = {
     "Successful landing": "#2ca02c",
-    "Unsuccessful landing": "#d62728",
+    "No successful recovery": "#d62728",
 }
 
 
@@ -179,13 +179,13 @@ def get_scatter_chart(entered_site: str, payload_range):
         title=title,
         labels={
             "Payload Mass (kg)": "Payload mass (kg)",
-            "class": "Landing outcome (0 = unsuccessful, 1 = successful)",
+            "class": "Landing outcome (0 = no successful recovery, 1 = successful landing)",
             "Landing Outcome": "Landing outcome",
             "Booster Version Category": "Booster category",
         },
     )
     fig.update_layout(legend_title_text="Booster category")
-    fig.update_yaxes(tickmode="array", tickvals=[0, 1], ticktext=["Unsuccessful", "Successful"])
+    fig.update_yaxes(tickmode="array", tickvals=[0, 1], ticktext=["No successful recovery", "Successful landing"])
     return fig
 
 
