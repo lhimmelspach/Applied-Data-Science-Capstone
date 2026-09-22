@@ -1,4 +1,5 @@
 from pathlib import Path
+import math
 
 import dash
 import pandas as pd
@@ -17,15 +18,15 @@ spacex_df["Landing Outcome"] = spacex_df["class"].map(
     {1: "Successful landing", 0: "Unsuccessful landing"}
 )
 
-min_payload = spacex_df["Payload Mass (kg)"].min()
-max_payload = spacex_df["Payload Mass (kg)"].max()
+min_payload = float(spacex_df["Payload Mass (kg)"].min())
+max_payload = float(spacex_df["Payload Mass (kg)"].max())
 payload_step = 250
-payload_marks = {
-    value: f"{value:,}"
-    for value in range(int(min_payload), int(max_payload) + 1, 2000)
-}
-payload_marks[min_payload] = f"{min_payload:,.0f}"
-payload_marks[max_payload] = f"{max_payload:,.0f}"
+payload_mark_values = [
+    float(value)
+    for value in range(math.floor(min_payload), math.ceil(max_payload) + 1, 2000)
+]
+payload_mark_values.extend([min_payload, max_payload])
+payload_marks = {value: f"{value:,.0f}" for value in sorted(set(payload_mark_values))}
 
 app = dash.Dash(__name__)
 app.title = "SpaceX Launch Dashboard"
